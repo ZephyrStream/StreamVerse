@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Channel Guide | StreamVerse IPTV</title>
+    <meta name="description" content="Explore our massive list of 30,000+ TV channels. Search by name or filter by category like Sports, Movies, USA, UK, and more.">
+    
+    <!-- Link to your CSS and Fonts -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header (same as other pages) -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">StreamVerse IPTV</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="channel-guide.html" class="active">Channel Guide</a></li>
+                <li><a href="dashboard.html" class="nav-button">My Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="guide-section">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Explore Our Universe of Channels</h2>
+                <p>Use the filters and search bar below to find your favorite content.</p>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-controls" data-aos="fade-up" data-aos-delay="100">
+                <input type="text" id="search-bar" placeholder="🔍 Search for a channel...">
+                <div class="category-filters">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="Sports">Sports</button>
+                    <button class="filter-btn" data-category="Movies">Movies</button>
+                    <button class="filter-btn" data-category="UK">UK</button>
+                    <button class="filter-btn" data-category="USA">USA</button>
+                    <button class="filter-btn" data-category="France">France</button>
+                    <!-- Add more categories as needed -->
+                </div>
+            </div>
+
+            <!-- Channel List Table -->
+            <div class="channel-table-container" data-aos="fade-up" data-aos-delay="200">
+                <table class="channel-table">
+                    <thead>
+                        <tr>
+                            <th>Logo</th>
+                            <th>Channel Name</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody id="channel-list-body">
+                        <!-- Channel rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+                <div id="loading-indicator">Loading channels...</div>
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-controls" id="pagination-controls">
+                <!-- Pagination buttons will be inserted here by JavaScript -->
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer (same as other pages) -->
+
+    <!-- JS Files -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
