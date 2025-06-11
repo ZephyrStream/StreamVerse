@@ -1,0 +1,177 @@
+/* Add to the top of your styles.css */
+:root {
+    --primary-purple: #7F5AF0;
+    --dark-bg: #0F0F1A;
+    --light-bg: #161625;
+    --gold-accent: #FFD700;
+    --text-light: #E0E0E0;
+    --text-white: #FFFFFF;
+}
+
+/* --- Hero Video Section --- */
+.hero-video {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 15, 26, 0.7); /* Dark overlay for text readability */
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: var(--text-white);
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(127, 90, 240, 0.5);
+}
+
+.hero-content .subtitle {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+/* --- Infinite Logo Marquee --- */
+.logo-marquee-container {
+    background-color: var(--light-bg);
+    padding: 2rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid var(--primary-purple);
+    border-bottom: 1px solid var(--primary-purple);
+}
+
+.logo-marquee {
+    display: inline-block;
+    animation: scroll-left 30s linear infinite;
+}
+
+.logo-marquee img {
+    height: 40px;
+    margin: 0 40px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+.logo-marquee:hover {
+    animation-play-state: paused;
+}
+.logo-marquee img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- Content Showcase Section --- */
+.content-showcase {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.content-showcase h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.showcase-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 450px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.showcase-card:hover {
+    transform: perspective(1000px) rotateY(0deg) translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.showcase-card:hover .card-bg {
+    transform: scale(1.1);
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    color: var(--text-white);
+    background: linear-gradient(to top, rgba(15, 15, 26, 0.95), transparent);
+    transform: translateY(30%);
+    transition: transform 0.5s;
+}
+
+.showcase-card:hover .card-content {
+    transform: translateY(0);
+}
+
+.card-content h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-purple);
+}
+
+.card-content p {
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.5s 0.2s;
+}
+
+.showcase-card:hover .card-content p {
+    opacity: 1;
+}
