@@ -186,3 +186,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial load
     loadChannels();
 });
+
+// --- SETUP GUIDE TABS LOGIC ---
+document.addEventListener('DOMContentLoaded', () => {
+    const tabsContainer = document.querySelector('.tabs-container');
+    if (!tabsContainer) return; // Exit if not on the setup guide page
+
+    const tabButtons = tabsContainer.querySelectorAll('.tab-btn');
+    const tabPanels = tabsContainer.querySelectorAll('.tab-content-panel');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Deactivate all
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabPanels.forEach(panel => panel.classList.remove('active'));
+
+            // Activate the clicked one
+            button.classList.add('active');
+_
+            const targetPanelId = button.dataset.tab;
+            const targetPanel = document.getElementById(targetPanelId);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+            }
+        });
+    });
+});
