@@ -212,3 +212,113 @@ _
         });
     });
 });
+
+// --- DASHBOARD AUTHENTICATION & DATA LOGIC ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if we are on the dashboard page
+    const dashboardPage = document.querySelector('.dashboard-page');
+    if (!dashboardPage) return;
+
+    // --- Firebase SDKs ---
+    const { initializeApp } = firebase.app;
+    const { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut } = firebase.auth;
+    const { getFirestore, doc, getDoc } = firebase.firestore;
+    
+    // --- Your Firebase Config (should be defined earlier in the file) ---
+    // const firebaseConfig = { ... };
+    // const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const db = getFirestore();
+    const provider = new GoogleAuthProvider();
+
+    // --- Get DOM Elements ---
+    const loginView = document.getElementById('login-view');
+    const dashboardView = document.getElementById('dashboard-view');
+    const loginForm = document.getElementById('login-form');
+    const loginEmailInput = document.getElementById('login-email');
+    const loginPasswordInput = document.getElementById('login-password');
+    const loginError = document.getElementById('login-error');
+    const googleLoginBtn = document.getElementById('google-login-btn');
+    const logoutButton = document.getElementById('logout-button');
+    const userEmailDisplay = document.getElementById('user-email-display');
+    const subscriptionDetailsDiv = document.getElementById('subscription-details');
+
+    // --- Core Auth State Listener ---
+    onAuthStateChanged(auth, user => {
+        if (user) {
+            // User is signed in
+            loginView.classList.add('hidden');
+            dashboardView.classList.remove('hidden');
+            userEmailDisplay.textContent = user.email;
+            loadSubscriptionData(user.uid);
+        } else {
+            // User is signed out
+            dashboardView.classList.add('hidden');
+            loginView.classList.remove('hidden');
+        }
+    });
+
+    // --- Load Subscription Data from Firestore ---
+    async function loadSubscriptionData(userId) {
+        subscriptionDetailsDiv.innerHTML = '<div class="loader"></div>'; // Show loader
+        const docRef = doc(db, "subscriptions", userId);
+        try {
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                const expiry = new Date(data.expiry_date.seconds * 1000).toLocaleDateString();
+                subscriptionDetailsDiv.innerHTML = `
+                    <div class="detail-item"><strong>Plan:</strong> <span>${data.plan}</span></div>
+                    <div class="detail-item"><strong>Status:</strong> <span class="status-${data.status.toLowerCase()}">${data.status}</span></div>
+                    <div class="detail-item"><strong>Expires On:</strong> <span>${expiry}</span></div>
+                    <div class="detail-item">
+                        <strong>M3U Link:</strong>
+                        <div class="m3u-container">
+                            <input type="text" id="m3u-link-input" value="${data.m3u_url}" readonly>
+                            <button class="copy-btn" id="copy-m3u-btn">Copy</button>
+                        </div>
+                    </div>
+                `;
+                // Add event listener for the new copy button
+                document.getElementById('copy-m3u-btn').addEventListener('click', copyM3uLink);
+            } else {
+                subscriptionDetailsDiv.innerHTML = "<p>No active subscription found for this account. If you've just paid, please wait a few minutes or contact support.</p>";
+            }
+        } catch (error) {
+            console.error("Error fetching subscription:", error);
+            subscriptionDetailsDiv.innerHTML = "<p>Could not load your subscription data. Please try again later.</p>";
+        }
+    }
+
+    // --- Event Handlers ---
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        loginError.style.display = 'none';
+        try {
+            await signInWithEmailAndPassword(auth, loginEmailInput.value, loginPasswordInput.value);
+        } catch (error) {
+            loginError.textContent = "Invalid email or password. Please try again.";
+            loginError.style.display = 'block';
+        }
+    });
+    
+    googleLoginBtn.addEventListener('click', () => {
+        signInWithPopup(auth, provider).catch(error => {
+            loginError.textContent = "Google Sign-In failed. Please try again.";
+            loginError.style.display = 'block';
+        });
+    });
+
+    logoutButton.addEventListener('click', () => {
+        signOut(auth);
+    });
+
+    function copyM3uLink() {
+        const m3uInput = document.getElementById('m3u-link-input');
+        const copyBtn = document.getElementById('copy-m3u-btn');
+        navigator.clipboard.writeText(m3uInput.value).then(() => {
+            copyBtn.textContent = 'Copied!';
+            setTimeout(() => { copyBtn.textContent = 'Copy'; }, 2000);
+        });
+    }
+});
