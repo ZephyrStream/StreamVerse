@@ -794,3 +794,65 @@
     margin: 50px auto;
 }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* --- Legal & Contact Page Styles --- */
+.legal-page, .contact-page {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.legal-content {
+    background: var(--light-bg);
+    padding: 40px;
+    border-radius: 10px;
+    line-height: 1.7;
+}
+
+.legal-content h3 {
+    color: var(--primary-purple);
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.legal-content h3:first-child {
+    margin-top: 0;
+}
+
+.legal-content p, .legal-content li {
+    color: var(--text-light);
+}
+
+.legal-content ul {
+    padding-left: 20px;
+}
+
+/* Contact Page Specifics */
+.contact-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.contact-card {
+    background: var(--light-bg);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.contact-card h3 {
+    color: var(--primary-purple);
+    margin-bottom: 15px;
+}
+
+.contact-card p {
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+    .contact-options {
+        grid-template-columns: 1fr 1fr;
+    }
+}
