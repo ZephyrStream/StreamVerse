@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | StreamVerse IPTV</title>
+    <meta name="description" content="Log in to your StreamVerse IPTV dashboard to view your subscription status, access your M3U link, and manage your account.">
+
+    <!-- Link to your CSS and Fonts -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header (same as other pages) -->
+    <header>
+        <!-- ... nav bar ... -->
+    </header>
+
+    <main>
+        <section class="dashboard-page">
+            <!-- Login View -->
+            <div id="login-view" class="auth-container" data-aos="fade-up">
+                <h2>Access Your Dashboard</h2>
+                <p>Log in to view your subscription details.</p>
+                <form id="login-form">
+                    <input type="email" id="login-email" placeholder="Your Email" required>
+                    <input type="password" id="login-password" placeholder="Your Password" required>
+                    <button type="submit" class="cta-button full-width">Login</button>
+                </form>
+                <div class="divider">or</div>
+                <button id="google-login-btn" class="google-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
+                    Sign in with Google
+                </button>
+                <p class="auth-note">Your account is created by our team after your first purchase. Please check your welcome email for your password.</p>
+                 <p id="login-error" class="error-message"></p>
+            </div>
+
+            <!-- Dashboard View (Hidden by default) -->
+            <div id="dashboard-view" class="hidden">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>Welcome back, <span id="user-email-display"></span>!</h2>
+                    <p>Here is your current subscription information.</p>
+                </div>
+
+                <div id="subscription-details" class="sub-card" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Data will be loaded here -->
+                    <div class="loader"></div>
+                </div>
+                
+                <button id="logout-button" class="cta-button outline">Logout</button>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer (same as other pages) -->
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    
+    <!-- Other JS Files -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
