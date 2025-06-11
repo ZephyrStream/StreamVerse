@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>StreamVerse IPTV | The Future of Premium 4K Entertainment</title>
+    <meta name="description" content="Immerse yourself in 30,000+ channels and VOD with StreamVerse IPTV. Featuring a stunning design, animations, and the best sports, movies, and series in 4K/8K.">
+    <!-- ... (other meta tags remain the same) ... -->
+
+    <!-- AOS Animation Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <!-- Header remains the same -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">StreamVerse IPTV</a>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="channel-guide.html">Channel Guide</a></li>
+                <li><a href="dashboard.html" class="nav-button">My Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION WITH VIDEO BACKGROUND -->
+        <section class="hero-video">
+            <div class="video-overlay"></div>
+            <video src="assets/videos/hero-bg.mp4" autoplay muted loop></video>
+            <div class="hero-content" data-aos="fade-up">
+                <h1 id="hero-headline">The Universe Of Entertainment</h1>
+                <p class="subtitle">30,000+ Channels. 80,000+ VOD. One Subscription.</p>
+                <a href="pricing.html" class="cta-button">Start Your $1.99 Trial Now</a>
+            </div>
+        </section>
+
+        <!-- INFINITE CHANNEL LOGO MARQUEE -->
+        <div class="logo-marquee-container">
+            <div class="logo-marquee">
+                <!-- Add 15-20 logos. Duplicate the set to ensure smooth looping. -->
+                <img src="assets/images/logos/hbo.png" alt="HBO">
+                <img src="assets/images/logos/sky-sports.png" alt="Sky Sports">
+                <img src="assets/images/logos/espn.png" alt="ESPN">
+                <img src="assets/images/logos/netflix.png" alt="Netflix">
+                <img src="assets/images/logos/bein.png" alt="beIN Sports">
+                <img src="assets/images/logos/f1.png" alt="F1 TV">
+                <img src="assets/images/logos/disney.png" alt="Disney+">
+                <!-- Duplicate the above block -->
+                <img src="assets/images/logos/hbo.png" alt="HBO">
+                <img src="assets/images/logos/sky-sports.png" alt="Sky Sports">
+                <img src="assets/images/logos/espn.png" alt="ESPN">
+                <img src="assets/images/logos/netflix.png" alt="Netflix">
+                <img src="assets/images/logos/bein.png" alt="beIN Sports">
+                <img src="assets/images/logos/f1.png" alt="F1 TV">
+                <img src="assets/images/logos/disney.png" alt="Disney+">
+            </div>
+        </div>
+
+        <!-- CONTENT SHOWCASE SECTION -->
+        <section class="content-showcase">
+            <h2 data-aos="fade-up">Your Entertainment, Your Way</h2>
+            <div class="showcase-grid">
+                <div class="showcase-card" data-aos="zoom-in">
+                    <img src="assets/images/sports.jpg" class="card-bg" alt="Live Sports Action">
+                    <div class="card-content">
+                        <h3>Live Sports</h3>
+                        <p>Never miss a game. From the Premier League and NFL to Formula 1, watch it all live in stunning HD and 4K.</p>
+                    </div>
+                </div>
+                <div class="showcase-card" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="assets/images/movies.jpg" class="card-bg" alt="Blockbuster Movies">
+                    <div class="card-content">
+                        <h3>Blockbuster Movies</h3>
+                        <p>Our VOD library is updated daily with the latest blockbusters and timeless classics. Your personal cinema awaits.</p>
+                    </div>
+                </div>
+                <div class="showcase-card" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="assets/images/series.jpg" class="card-bg" alt="Binge-worthy TV Series">
+                    <div class="card-content">
+                        <h3>Binge-Worthy Series</h3>
+                        <p>Catch up on entire seasons of the most popular TV shows from around the world. All on-demand, ad-free.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other sections like How It Works, Device Compatibility, and Footer remain the same -->
+        <!-- Add data-aos attributes to them as well, e.g., data-aos="fade-up" -->
+        
+    </main>
+
+    <!-- Footer ... -->
+
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Firebase and Main JS -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <!-- ... (other Firebase scripts) ... -->
+    <script src="main.js"></script>
+</body>
+</html>
