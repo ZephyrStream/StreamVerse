@@ -524,3 +524,121 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+/* --- Setup Guide Page Styles --- */
+.setup-guide-section {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.tabs-container {
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.tabs-nav {
+    display: flex;
+    border-bottom: 2px solid #2a2a3a;
+    margin-bottom: 20px;
+    overflow-x: auto; /* For mobile */
+}
+
+.tab-btn {
+    padding: 15px 25px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    font-size: 1rem;
+    font-weight: 600;
+    border-bottom: 3px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    color: var(--text-white);
+}
+
+.tab-btn.active {
+    color: var(--primary-purple);
+    border-bottom-color: var(--primary-purple);
+}
+
+.tab-content-panel {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.tab-content-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.setup-steps {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: step-counter;
+}
+
+.setup-steps li {
+    counter-increment: step-counter;
+    margin-bottom: 25px;
+    padding-left: 50px;
+    position: relative;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.setup-steps li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 35px;
+    height: 35px;
+    background-color: var(--primary-purple);
+    color: var(--text-white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.setup-steps li ul {
+    margin-top: 10px;
+}
+
+.step-image {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 15px;
+    border: 1px solid #2a2a3a;
+}
+
+.help-box {
+    margin-top: 60px;
+    background: linear-gradient(45deg, var(--primary-purple), #5d3ad1);
+    color: var(--text-white);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.help-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+.help-box .cta-button {
+    background: var(--text-white);
+    color: var(--dark-bg);
+    margin-top: 20px;
+}
