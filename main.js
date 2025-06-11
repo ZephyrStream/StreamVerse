@@ -55,3 +55,134 @@ faqItems.forEach(item => {
         }
     });
 });
+
+// --- CHANNEL GUIDE LOGIC ---
+// This code will run only if it finds the 'channel-list-body' element.
+document.addEventListener('DOMContentLoaded', () => {
+    const channelListBody = document.getElementById('channel-list-body');
+    if (!channelListBody) return; // Exit if not on the channel guide page
+
+    const searchBar = document.getElementById('search-bar');
+    const categoryFilters = document.querySelectorAll('.filter-btn');
+    const paginationControls = document.getElementById('pagination-controls');
+    const loadingIndicator = document.getElementById('loading-indicator');
+    
+    let allChannels = [];
+    let filteredChannels = [];
+    let currentCategory = 'all';
+    let currentPage = 1;
+    const rowsPerPage = 50;
+
+    // Fetch channel data from JSON file
+    async function loadChannels() {
+        try {
+            const response = await fetch('channels.json');
+            if (!response.ok) throw new Error('Network response was not ok');
+            allChannels = await response.json();
+            filteredChannels = [...allChannels];
+            loadingIndicator.style.display = 'none';
+            displayPage(1);
+        } catch (error) {
+            loadingIndicator.textContent = 'Failed to load channels. Please try again later.';
+            console.error('Error fetching channels:', error);
+        }
+    }
+
+    // Display a specific page of channels
+    function displayPage(page) {
+        currentPage = page;
+        channelListBody.innerHTML = '';
+        
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        const paginatedItems = filteredChannels.slice(start, end);
+
+        paginatedItems.forEach(channel => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><img src="${channel.logo}" alt="${channel.name} Logo" class="channel-logo"></td>
+                <td>${channel.name}</td>
+                <td>${channel.category}</td>
+            `;
+            channelListBody.appendChild(row);
+        });
+
+        setupPagination();
+    }
+
+    // Setup pagination buttons
+    function setupPagination() {
+        paginationControls.innerHTML = '';
+        const pageCount = Math.ceil(filteredChannels.length / rowsPerPage);
+        
+        // Previous Button
+        const prevButton = document.createElement('button');
+        prevButton.textContent = '«';
+        prevButton.classList.add('pagination-btn');
+        prevButton.disabled = currentPage === 1;
+        prevButton.addEventListener('click', () => displayPage(currentPage - 1));
+        paginationControls.appendChild(prevButton);
+
+        // Page Number Buttons (simplified for performance)
+        for (let i = 1; i <= pageCount; i++) {
+             if (i === 1 || i === pageCount || (i >= currentPage - 2 && i <= currentPage + 2)) {
+                const pageButton = document.createElement('button');
+                pageButton.textContent = i;
+                pageButton.classList.add('pagination-btn');
+                if (i === currentPage) pageButton.classList.add('active');
+                pageButton.addEventListener('click', () => displayPage(i));
+                paginationControls.appendChild(pageButton);
+             } else if (i === currentPage - 3 || i === currentPage + 3) {
+                const ellipsis = document.createElement('span');
+                ellipsis.textContent = '...';
+                paginationControls.appendChild(ellipsis);
+            }
+        }
+        
+        // Next Button
+        const nextButton = document.createElement('button');
+        nextButton.textContent = '»';
+        nextButton.classList.add('pagination-btn');
+        nextButton.disabled = currentPage === pageCount;
+        nextButton.addEventListener('click', () => displayPage(currentPage + 1));
+        paginationControls.appendChild(nextButton);
+    }
+
+    // Filter and Search logic
+    function applyFilters() {
+        const searchTerm = searchBar.value.toLowerCase();
+
+        // Start with category filter
+        if (currentCategory === 'all') {
+            filteredChannels = [...allChannels];
+        } else {
+            filteredChannels = allChannels.filter(channel => 
+                channel.category.toLowerCase() === currentCategory.toLowerCase()
+            );
+        }
+        
+        // Then apply search filter
+        if (searchTerm) {
+            filteredChannels = filteredChannels.filter(channel => 
+                channel.name.toLowerCase().includes(searchTerm)
+            );
+        }
+
+        displayPage(1); // Reset to first page after filtering
+    }
+
+    // Event Listeners
+    searchBar.addEventListener('keyup', applyFilters);
+
+    categoryFilters.forEach(button => {
+        button.addEventListener('click', () => {
+            categoryFilters.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            currentCategory = button.dataset.category;
+            applyFilters();
+        });
+    });
+
+    // Initial load
+    loadChannels();
+});
