@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Guide | StreamVerse IPTV</title>
+    <meta name="description" content="Easy step-by-step guides to set up your StreamVerse IPTV subscription on any device: Firestick, Android TV, Apple TV, iOS, Android, and more.">
+
+    <!-- Link to your CSS and Fonts -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header (same as other pages) -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">StreamVerse IPTV</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="channel-guide.html">Channel Guide</a></li>
+                <li><a href="setup-guide.html" class="active">Setup Guide</a></li>
+                <li><a href="dashboard.html" class="nav-button">My Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="setup-guide-section">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Welcome! Let's Get You Set Up.</h2>
+                <p>Follow the guide for your device below. You can find your M3U link and credentials in the welcome email we sent you.</p>
+            </div>
+
+            <!-- Tab Navigation for Devices -->
+            <div class="tabs-container" data-aos="fade-up" data-aos-delay="100">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="firestick">🔥 Firestick / Android TV</button>
+                    <button class="tab-btn" data-tab="apple"> Apple TV / iOS</button>
+                    <button class="tab-btn" data-tab="windows">💻 Windows / Mac</button>
+                    <button class="tab-btn" data-tab="smarttv">📺 Smart TV (LG/Samsung)</button>
+                </div>
+
+                <!-- Tab Content Panels -->
+                <div class="tabs-content">
+                    <!-- Guide 1: Firestick / Android TV (Most Popular) -->
+                    <div id="firestick" class="tab-content-panel active">
+                        <h3>Setup using TiviMate (Recommended)</h3>
+                        <ol class="setup-steps">
+                            <li>On your Firestick, go to <strong>Search/Find</strong> and look for the <strong>"Downloader"</strong> app. Install it.</li>
+                            <li>Open Downloader and in the URL bar, type <strong><code>tivimate.com/apk</code></strong> and click Go. The TiviMate Companion app will download.</li>
+                            <li>Install the TiviMate app. After installation, open it.</li>
+                            <li>Click on <strong>"Add Playlist"</strong>, then choose <strong>"M3U playlist"</strong>.</li>
+                            <li>Enter the <strong>M3U URL</strong> from your welcome email into the playlist URL field. Click Next.</li>
+                            <img src="https://via.placeholder.com/600x300/161625/FFFFFF?text=Screenshot+of+entering+M3U+URL" alt="Entering M3U URL" class="step-image">
+                            <li>The playlist will process. Give it a name like "StreamVerse" and click Done.</li>
+                            <li>Your channels will now load. Enjoy the streaming!</li>
+                        </ol>
+                    </div>
+
+                    <!-- Guide 2: Apple TV / iOS -->
+                    <div id="apple" class="tab-content-panel">
+                        <h3>Setup using IPTV Smarters Player</h3>
+                        <ol class="setup-steps">
+                            <li>Go to the <strong>App Store</strong> and search for "IPTV Smarters Player". Install it.</li>
+                            <li>Open the app and accept the Terms of Use.</li>
+                            <li>Select <strong>"Add Your Playlist (via M3U URL)"</strong>.</li>
+                            <li>Fill in the details:
+                                <ul>
+                                    <li><strong>Playlist Name:</strong> StreamVerse IPTV</li>
+                                    <li><strong>Playlist Type:</strong> M3U URL</li>
+                                    <li><strong>File/URL:</strong> Paste the M3U Link from your email.</li>
+                                </ul>
+                            </li>
+                            <img src="https://via.placeholder.com/600x300/161625/FFFFFF?text=Screenshot+of+Smarters+login+screen" alt="Smarters Login" class="step-image">
+                            <li>Click <strong>"Add User"</strong>. The app will load the channels and VOD.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Guide 3: Windows / Mac -->
+                    <div id="windows" class="tab-content-panel">
+                        <h3>Setup using VLC Media Player</h3>
+                        <ol class="setup-steps">
+                            <li>Download and install <strong>VLC Media Player</strong> from the official website (videolan.org).</li>
+                            <li>Open VLC. In the top menu, click on <strong>Media > Open Network Stream...</strong> (or Ctrl+N).</li>
+                            <li>Paste your M3U URL from your welcome email into the network URL box.</li>
+                            <img src="https://via.placeholder.com/600x300/161625/FFFFFF?text=Screenshot+of+VLC+Network+Stream" alt="VLC Network Stream" class="step-image">
+                            <li>Click <strong>"Play"</strong>. The first channel on the list will start playing.</li>
+                            <li>To see the full channel list, click on <strong>View > Playlist</strong> (or Ctrl+L).</li>
+                        </ol>
+                    </div>
+
+                    <!-- Guide 4: Smart TV (LG/Samsung) -->
+                    <div id="smarttv" class="tab-content-panel">
+                        <h3>Setup using IPTV Smarters App or 'IBO Player'</h3>
+                        <p>For modern Samsung (Tizen) or LG (WebOS) TVs, the easiest method is to search for an IPTV app directly in the TV's app store.</p>
+                        <ol class="setup-steps">
+                            <li>On your TV's home screen, go to the <strong>App Store</strong>.</li>
+                            <li>Search for <strong>"IPTV Smarters Pro"</strong> or <strong>"IBO Player"</strong>. Install one of them.</li>
+                            <li>Open the app. It will give you login options. Choose to log in with <strong>M3U Playlist URL</strong>.</li>
+                            <li>Enter the credentials from your email. Some apps like IBO Player may require you to visit their website (iboplayer.com) to upload your playlist using your TV's MAC address and Device ID.</li>
+                            <li>Follow the on-screen instructions to load your playlist.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Help Section -->
+            <div class="help-box" data-aos="fade-up">
+                <h3>Still Stuck? We're Here to Help!</h3>
+                <p>If you're having trouble with the setup, don't worry. Our support team is available 24/7 to walk you through it.</p>
+                <a href="https://wa.me/212XXXXXXXXX?text=Hello!%20I%20need%20help%20setting%20up%20my%20IPTV%20subscription." target="_blank" class="cta-button">Contact Support on WhatsApp</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer (same as other pages) -->
+
+    <!-- JS Files -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
