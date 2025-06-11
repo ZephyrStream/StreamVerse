@@ -1,0 +1,50 @@
+[
+  {
+    "name": "HBO HD",
+    "logo": "https://i.imgur.com/8BrS1y1.png",
+    "category": "Movies",
+    "language": "English"
+  },
+  {
+    "name": "Sky Sports Premier League",
+    "logo": "https://i.imgur.com/k2sC2r9.png",
+    "category": "Sports",
+    "language": "English"
+  },
+  {
+    "name": "ESPN USA",
+    "logo": "https://i.imgur.com/4f5g2q2.png",
+    "category": "Sports",
+    "language": "English"
+  },
+  {
+    "name": "AMC HD",
+    "logo": "https://i.imgur.com/1nZ2yvJ.png",
+    "category": "Movies",
+    "language": "English"
+  },
+  {
+    "name": "BBC One UK",
+    "logo": "https://i.imgur.com/L8a1eT7.png",
+    "category": "UK",
+    "language": "English"
+  },
+  {
+    "name": "National Geographic",
+    "logo": "https://i.imgur.com/j8nQ1zG.png",
+    "category": "Documentaries",
+    "language": "English"
+  },
+  {
+    "name": "Canal+ France",
+    "logo": "https://i.imgur.com/y1vE1R3.png",
+    "category": "France",
+    "language": "French"
+  },
+  {
+    "name": "beIN Sports 1",
+    "logo": "https://i.imgur.com/3dG8h0s.png",
+    "category": "Sports",
+    "language": "Arabic"
+  }
+]
