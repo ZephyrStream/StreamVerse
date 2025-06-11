@@ -407,3 +407,120 @@
     color: var(--text-light);
     line-height: 1.6;
 }
+
+/* --- Channel Guide Page Styles --- */
+.guide-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.filter-controls {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#search-bar {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: var(--light-bg);
+    border: 2px solid var(--primary-purple);
+    border-radius: 10px;
+    color: var(--text-white);
+    font-size: 1rem;
+}
+
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 1px solid var(--primary-purple);
+    background: transparent;
+    color: var(--text-light);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--primary-purple);
+    color: var(--text-white);
+}
+
+.channel-table-container {
+    background: var(--light-bg);
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 400px;
+}
+
+#loading-indicator {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.channel-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.channel-table th {
+    text-align: left;
+    padding: 15px;
+    color: var(--primary-purple);
+    border-bottom: 2px solid var(--primary-purple);
+}
+
+.channel-table td {
+    padding: 15px;
+    border-bottom: 1px solid #2a2a3a;
+    vertical-align: middle;
+}
+
+.channel-table tr:last-child td {
+    border-bottom: none;
+}
+
+.channel-logo {
+    height: 40px;
+    width: auto;
+    max-width: 80px;
+    background: #fff; /* White bg for transparent logos */
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.pagination-controls {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.pagination-btn {
+    padding: 10px 15px;
+    border: 1px solid var(--primary-purple);
+    background: transparent;
+    color: var(--primary-purple);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination-btn.active, .pagination-btn:hover {
+    background-color: var(--primary-purple);
+    color: var(--text-white);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
