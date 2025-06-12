@@ -48,3 +48,9 @@
     "language": "Arabic"
   }
 ]
+[
+  {"name": "HBO HD", "logo": "assets/images/logos/hbo.png", "category": "Movies", "country": "USA"},
+  {"name": "Sky Sports Premier League", "logo": "assets/images/logos/sky-sports.png", "category": "Sports", "country": "UK"},
+  {"name": "ESPN USA", "logo": "assets/images/logos/espn.png", "category": "Sports", "country": "USA"},
+  {"name": "BBC One UK", "logo": "assets/images/logos/bbc-one.png", "category": "Entertainment", "country": "UK"}
+]
