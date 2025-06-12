@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>IPTV Nexus – Your Universe of Entertainment</title>
-    <meta name="description" content="Experience premium IPTV with 15,000+ channels, 4K movies, and live sports. Instant setup and 24/7 support. Start your free trial today.">
+    <meta name="description" content="Experience premium IPTV built on quality, stability, and security. 15,000+ channels, 4K VOD, and 99.9% uptime. Start your free trial today.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,10 +19,10 @@
         
         /* 1. Root Variables & Base Styles */
         :root {
-            --dark-bg: #050816; /* Deeper space black */
+            --dark-bg: #050816;
             --card-bg: #111118;
             --primary-blue: #007BFF;
-            --accent-glow: #00BFFF; /* Bright cyan for glow */
+            --accent-glow: #00BFFF;
             --text-primary: #F0F0F0;
             --text-secondary: #A0A0B0;
             --border-color: #22222A;
@@ -37,18 +37,13 @@
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* 2. Header Styles (Slightly more transparent to show off particles) */
+        /* 2. Header Styles */
         .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 0;
-            z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%; padding: 20px 0; z-index: 1000;
             transition: all 0.4s ease;
         }
         .header.scrolled {
-            background: rgba(5, 8, 22, 0.85); /* Darker glassmorphism */
+            background: rgba(5, 8, 22, 0.85);
             backdrop-filter: blur(10px);
             padding: 15px 0;
             border-bottom: 1px solid var(--border-color);
@@ -65,48 +60,58 @@
         .btn-primary { background-color: var(--primary-blue); color: var(--text-primary); }
         .btn-primary:hover { background-color: var(--accent-glow); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 191, 255, 0.3); }
 
-        /* 3. Hero Section Styles (Updated for Particle Background) */
+        /* 3. Hero Section Styles */
         .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            background-color: var(--dark-bg); /* Fallback color */
+            position: relative; height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; overflow: hidden; background-color: var(--dark-bg);
         }
-        #particles-js { /* This is the canvas for our animation */
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0; /* Behind content, in front of bg color */
+        #particles-js {
+            position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0;
         }
-        .hero-content {
-            position: relative; /* Make sure content is above particles */
-            z-index: 1;
-        }
+        .hero-content { position: relative; z-index: 1; }
         .hero-content h1 {
-            font-size: 4.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-            text-shadow: 0 0 25px rgba(0, 123, 255, 0.4);
+            font-size: 4.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 20px;
+            color: var(--text-primary); text-shadow: 0 0 25px rgba(0, 123, 255, 0.4);
         }
-        .hero-content p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 750px;
-            margin: 0 auto 40px;
-        }
+        .hero-content p { font-size: 1.25rem; color: var(--text-secondary); max-width: 750px; margin: 0 auto 40px; }
         .hero-buttons { display: flex; justify-content: center; gap: 20px; }
         .btn-secondary { background-color: rgba(255, 255, 255, 0.1); color: var(--text-primary); border: 2px solid var(--border-color); }
         .btn-secondary:hover { background-color: var(--text-primary); color: var(--dark-bg); border-color: var(--text-primary); transform: translateY(-3px); }
 
-        /* 4. Responsive Design */
+        /* 4. Features Section Styles */
+        .features {
+            background-color: var(--dark-bg); padding: 120px 0;
+        }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.8rem; margin-bottom: 15px; }
+        .section-title p { font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .feature-card {
+            background: var(--card-bg); padding: 40px 30px; border-radius: 15px; text-align: center;
+            border: 1px solid var(--border-color); transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px); border-color: var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.1);
+        }
+        .feature-icon { font-size: 3rem; color: var(--primary-blue); margin-bottom: 20px; display: inline-block; }
+        .feature-card h3 { font-size: 1.4rem; margin-bottom: 10px; }
+        .feature-card p { color: var(--text-secondary); }
+
+        /* 5. Footer Styles */
+        .footer {
+            background-color: var(--dark-bg); padding: 50px 20px 30px;
+            border-top: 1px solid var(--border-color); text-align: center;
+        }
+        .footer-links { margin-bottom: 20px; }
+        .footer-links a {
+            margin: 0 15px; color: var(--text-secondary); text-decoration: none;
+            font-weight: 500; transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--text-primary); }
+        .footer-copyright { color: #666; font-size: 0.9rem; }
+        
+        /* 6. Responsive Design */
         @media (max-width: 992px) { .nav-links { display: none; } }
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 2.8rem; }
@@ -119,7 +124,7 @@
 <body>
 
     <!-- =======================
-    PART 1: HEADER
+    HEADER
     ======================== -->
     <header class="header" id="header">
         <div class="container navbar">
@@ -139,12 +144,10 @@
     <main>
 
         <!-- =======================
-        PART 1.5: HERO SECTION (UPGRADED)
+        HERO SECTION (with Interactive Background)
         ======================== -->
         <section id="home" class="hero">
-            <!-- Particle.js Container -->
             <div id="particles-js"></div>
-
             <div class="container">
                 <div class="hero-content" data-aos="fade-up">
                     <h1>The Future of Entertainment is Here</h1>
@@ -157,12 +160,56 @@
             </div>
         </section>
 
+        <!-- =======================
+        FEATURES SECTION (with Trust & Quality Focus)
+        ======================== -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Built for a Superior Experience</h2>
+                    <p>We've engineered our service around the three pillars of modern streaming: Quality, Stability, and Security.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="bi bi-shield-check feature-icon"></i>
+                        <h3>Rock-Solid Stability</h3>
+                        <p>Our load-balanced network ensures 99.9% uptime, even during major live events. Say goodbye to freezing and buffering forever.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="bi bi-badge-4k-fill feature-icon"></i>
+                        <h3>Uncompromising Quality</h3>
+                        <p>Experience true 4K and HD streaming. We prioritize high-bitrate sources so you see every detail, crystal clear.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="bi bi-lock-fill feature-icon"></i>
+                        <h3>Your Privacy, Protected</h3>
+                        <p>We never log your activity. Our service is fully compatible with all major VPN providers for your peace of mind.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other sections like Content Showcase, Pricing, etc., will be added here -->
+
     </main>
+    
+    <!-- =======================
+    FOOTER SECTION
+    ======================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="dmca.html">DMCA Policy</a>
+            </div>
+            <p class="footer-copyright">© 2024 IPTV Nexus. All Rights Reserved. Use of this service constitutes acceptance of our Terms of Service.</p>
+        </div>
+    </footer>
 
-    <!-- AOS (Animate on Scroll) Library JS -->
+    <!-- JS Libraries -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-    <!-- Particles.js Library CDN -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script>
@@ -185,102 +232,12 @@
             }
         });
 
-        // 3. Initialize Particles.js with a custom high-tech configuration
+        // 3. Initialize Particles.js
         particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 100, /* More particles for a denser feel */
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#ffffff"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": true, /* Twinkling effect */
-                    "anim": {
-                        "enable": true,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.2, /* Faint constellation lines */
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2, /* Slower, more majestic movement */
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse" /* Pushes particles away from cursor */
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push" /* Adds more particles on click */
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 400,
-                        "line_linked": {
-                            "opacity": 0.5
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 150, /* How far the repulsion effect goes */
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
+            "particles": { "number": { "value": 100, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 }, "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false } },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "repulse": { "distance": 150, "duration": 0.4 }, "push": { "particles_nb": 4 } } },
             "retina_detect": true
         });
-
     </script>
 </body>
 </html>
